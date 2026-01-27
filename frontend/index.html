@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InspectAI - Visual Inspection System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🔍 InspectAI</h1>
+                <p class="subtitle">Industrial Visual Inspection System</p>
+            </div>
+            <div class="system-status" id="systemStatus">
+                <span class="status-dot"></span>
+                <span>System Ready</span>
+            </div>
+        </header>
+
+        <!-- Main Inspection Interface -->
+        <main>
+            <!-- Control Panel -->
+            <section class="control-panel">
+                <div class="form-group">
+                    <label for="categorySelect">Product Category</label>
+                    <select id="categorySelect" class="category-select">
+                        <option value="">Select category...</option>
+                    </select>
+                    <p class="category-warning">⚠️ Important: Ensure your image matches the selected category. The system is trained to detect defects in specific product types.</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Image</label>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <div class="upload-prompt">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Drop image here or click to browse</p>
+                            <p class="file-info">Supported: JPG, PNG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="inspectBtn" class="inspect-btn" disabled>
+                    Run Inspection
+                </button>
+            </section>
+
+            <!-- Results Display -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>Inspection Results</h2>
+                
+                <!-- Decision Banner -->
+                <div class="decision-banner" id="decisionBanner">
+                    <div class="decision-content">
+                        <div class="decision-icon" id="decisionIcon"></div>
+                        <div class="decision-text">
+                            <h3 id="decisionStatus">-</h3>
+                            <p id="decisionMessage">-</p>
+                        </div>
+                    </div>
+                    <div class="score-display">
+                        <div class="score-value" id="scoreValue">-</div>
+                        <div class="score-label">Anomaly Score</div>
+                    </div>
+                </div>
+
+                <!-- Threshold Info -->
+                <div class="threshold-info">
+                    <span>Detection Threshold: <strong id="thresholdValue">-</strong></span>
+                    <span class="separator">|</span>
+                    <span>Category: <strong id="resultCategory">-</strong></span>
+                    <span class="separator">|</span>
+                    <span id="timestamp">-</span>
+                </div>
+
+                <!-- Category Reminder -->
+                <div class="result-note">
+                    <strong>Note:</strong> Results are based on the <strong id="resultCategoryNote">-</strong> model. Ensure the uploaded image matches this category for accurate detection.
+                </div>
+
+                <!-- Visualizations -->
+                <div class="visualization-grid">
+                    <div class="viz-card">
+                        <h4>Original Image</h4>
+                        <div class="image-container">
+                            <img id="originalImage" alt="Original">
+                        </div>
+                    </div>
+
+                    <div class="viz-card">
+                        <h4>Anomaly Heatmap</h4>
+                        <div class="image-container">
+                            <img id="heatmapImage" alt="Heatmap">
+                        </div>
+                    </div>
+
+                    <div class="viz-card">
+                        <h4>Defect Localization</h4>
+                        <div class="image-container">
+                            <img id="overlayImage" alt="Overlay">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="newInspectionBtn" class="secondary-btn">New Inspection</button>
+                    <button id="exportBtn" class="secondary-btn">Export Report</button>
+                </div>
+            </section>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Running inspection...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>InspectAI v1.0 | Developed by Padmanabh Butala | Advanced Computer Vision for Quality Assurance</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

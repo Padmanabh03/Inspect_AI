@@ -1,0 +1,50 @@
+# Ignore large dataset files
+mvtec_anomaly_detection/*/train/
+mvtec_anomaly_detection/*/test/
+mvtec_anomaly_detection/*/ground_truth/
+mvtec_anomaly_detection/license.txt
+mvtec_anomaly_detection/readme.txt
+mvtec_anomaly_detection/*/license.txt
+mvtec_anomaly_detection/*/readme.txt
+
+# Ignore results and visualizations
+results/
+visualizations/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Ignore git files
+.git
+.gitignore
+.gitattributes
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore documentation files (not needed for runtime)
+README.md
+PROJECT_SUMMARY.md
+DEPLOYMENT.md
+
+# Ignore development files
+demo.py
+visualize_samples.py
+evaluate.py
+
+# Ignore Docker files
+docker-compose.yml
+.dockerignore
+
+# Ignore local virtual environments
+venv/
+env/
+ENV/
