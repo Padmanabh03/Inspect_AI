@@ -1,0 +1,11 @@
+services:
+  # Backend API
+  - type: web
+    name: inspectai-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DEVICE
+        value: cpu
+    healthCheckPath: /health

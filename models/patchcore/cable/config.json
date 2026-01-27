@@ -1,0 +1,11 @@
+{
+  "backbone": "wide_resnet50_2",
+  "layers": [
+    "layer2",
+    "layer3"
+  ],
+  "sampling_ratio": 0.1,
+  "n_neighbors": 9,
+  "threshold": 32.998719414320256,
+  "feature_shape": 28
+}
