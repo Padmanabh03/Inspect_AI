@@ -4,17 +4,14 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system dependencies including git-lfs for model files
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
     libxrender-dev \
-    git \
-    git-lfs \
-    && rm -rf /var/lib/apt/lists/* \
-    && git lfs install
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
