@@ -17,6 +17,12 @@ import cv2
 from datetime import datetime
 import os
 import sys
+import traceback
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Add parent directory to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -301,7 +307,18 @@ async def inspect_image(
         return result
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        # Log the full error with traceback
+        logger.error(f"❌ Inspection failed for category '{category}'")
+        logger.error(f"Error type: {type(e).__name__}")
+        logger.error(f"Error message: {str(e)}")
+        logger.error("Full traceback:")
+        logger.error(traceback.format_exc())
+        
+        # Return error to client
+        raise HTTPException(
+            status_code=500, 
+            detail=f"{type(e).__name__}: {str(e)}"
+        )
 
 
 @app.get("/model/info/{category}")
