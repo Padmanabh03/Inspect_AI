@@ -1,2 +1,1 @@
-*.npy filter=lfs diff=lfs merge=lfs -text
 models/patchcore/*/memory_bank.npy filter=lfs diff=lfs merge=lfs -text
