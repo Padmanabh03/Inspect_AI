@@ -34,7 +34,7 @@ A production-ready anomaly detection system for industrial quality assurance. Bu
 InspectAI includes a production-ready web inspection console:
 
 ### Interface Overview
-![InspectAI Interface](images/1.png)
+![InspectAI Interface](images/4.png)
 *Clean, intuitive interface for quality inspection with category selection and drag-and-drop upload*
 
 **Features:**
@@ -64,7 +64,7 @@ python start_app.py
 ### ❌ Defect Detection (FAIL)
 
 **Capsule with Crack** - Anomaly Score: 50.42
-![Capsule Defect](images/2.png)
+![Capsule Defect](images/5.png)
 - ❌ **Decision**: FAIL
 - 🔴 Red heatmap highlights crack location
 - 📊 Score: 50.42 (Threshold: 22.69)
@@ -78,7 +78,7 @@ python start_app.py
 - 🎯 Heatmap focuses on central defect
 
 **Toothbrush Contamination** - Anomaly Score: 58.81
-![Toothbrush Defect](images/4.png)
+![Toothbrush Defect](images/2.png)
 - ❌ **Decision**: FAIL
 - 🔴 Color/pattern anomalies detected
 - 📊 Score: 58.81 (Threshold: 36.87)
@@ -87,7 +87,7 @@ python start_app.py
 ### ✅ Normal Product (PASS)
 
 **Good Bottle** - Anomaly Score: 15.78
-![Normal Bottle](images/5.png)
+![Normal Bottle](images/1.png)
 - ✅ **Decision**: PASS
 - 🔵 Blue heatmap indicates normal regions
 - 📊 Score: 15.78 < Threshold: 15.99
