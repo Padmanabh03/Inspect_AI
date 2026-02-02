@@ -19,13 +19,79 @@ A production-ready anomaly detection system for industrial quality assurance. Bu
 
 ## 🎯 Features
 
+- **Complete Web Application**: Full-stack solution with FastAPI backend and modern frontend
 - **PatchCore Algorithm**: State-of-the-art anomaly detection using WideResNet50 backbone
+- **Real-time Visualization**: Interactive heatmaps showing exact defect locations
 - **Memory Bank**: Efficient coreset sampling to reduce memory footprint
 - **Multi-Scale Features**: Extracts features from multiple layers (layer2 + layer3)
 - **Automatic Thresholding**: Computes threshold from normal training data
-- **Visualization**: Generates anomaly heatmaps and overlay images
+- **REST API**: Complete API with model caching for production use
+- **15 Product Categories**: Pre-trained models for bottle, cable, capsule, carpet, grid, hazelnut, leather, metal_nut, pill, screw, tile, toothbrush, transistor, wood, zipper
 - **Comprehensive Evaluation**: Image-level and pixel-level AUROC metrics
-- **Scalable**: Supports all 15 MVTec categories
+
+## 🌐 Web Application
+
+InspectAI includes a production-ready web inspection console:
+
+### Interface Overview
+![InspectAI Interface](images/1.png)
+*Clean, intuitive interface for quality inspection with category selection and drag-and-drop upload*
+
+**Features:**
+- 🎨 Modern UI with purple gradient design
+- 📤 Drag-and-drop image upload
+- 📊 Real-time anomaly detection
+- 🔥 Interactive heatmap visualization
+- ✅ Clear PASS/FAIL decisions
+- 📈 Detailed anomaly scores and thresholds
+
+### Running the Application
+
+**Start the server:**
+```bash
+python start_app.py
+```
+
+**Access:**
+- **Web Interface**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+- **Health Check**: http://localhost:8000/health
+
+**Note**: This system runs on localhost. The model files (1.7GB total) exceed free hosting tier limits. Local deployment provides full functionality with excellent performance.
+
+## 🎯 Detection Examples
+
+### ❌ Defect Detection (FAIL)
+
+**Capsule with Crack** - Anomaly Score: 50.42
+![Capsule Defect](images/2.png)
+- ❌ **Decision**: FAIL
+- 🔴 Red heatmap highlights crack location
+- 📊 Score: 50.42 (Threshold: 22.69)
+- 🎯 Precise defect localization in overlay
+
+**Transistor Damage** - Anomaly Score: 40.38
+![Transistor Defect](images/3.png)
+- ❌ **Decision**: FAIL
+- 🔴 Burned/damaged chip component detected
+- 📊 Score: 40.38 (Threshold: 29.63)
+- 🎯 Heatmap focuses on central defect
+
+**Toothbrush Contamination** - Anomaly Score: 58.81
+![Toothbrush Defect](images/4.png)
+- ❌ **Decision**: FAIL
+- 🔴 Color/pattern anomalies detected
+- 📊 Score: 58.81 (Threshold: 36.87)
+- 🎯 Multiple defect regions highlighted
+
+### ✅ Normal Product (PASS)
+
+**Good Bottle** - Anomaly Score: 15.78
+![Normal Bottle](images/5.png)
+- ✅ **Decision**: PASS
+- 🔵 Blue heatmap indicates normal regions
+- 📊 Score: 15.78 < Threshold: 15.99
+- ✨ Product passes quality inspection
 
 ## 📁 Project Structure
 

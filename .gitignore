@@ -46,8 +46,8 @@ mvtec_anomaly_detection/*/train/
 mvtec_anomaly_detection/*/test/
 mvtec_anomaly_detection/*/ground_truth/
 
-# Keep model files for deployment
-!models/
+# Exclude large model files (too big for GitHub)
+models/patchcore/*/memory_bank.npy
 
 # OS
 .DS_Store
